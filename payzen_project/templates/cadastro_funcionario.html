@@ -5,13 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Funcionários</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-
+    <style>
+        /* Exemplo simples de estilização para as mensagens */
+        .alert {
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
 </head>
 <body>
     <div class="cadastro-container">
         <h1>Cadastro de funcionários</h1>
-        <!-- Alteração: Adicionada action e method no formulário -->
+        
+        <!-- Bloco para exibir mensagens flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        
+        <!-- Formulário de cadastro -->
         <form action="/cadastrar" method="POST">
             <!-- Linha 1 -->
             <div class="form-row">
@@ -46,7 +70,6 @@
             <!-- Botões -->
             <div class="form-actions">
                 <button type="button" class="btn" onclick="window.location.href='/busca'">Buscar funcionário</button>
-
                 <button type="submit" class="btn">Fazer cadastro</button>
             </div>
         </form>

@@ -63,9 +63,14 @@ def init_db():
 # Inicializar o banco ao iniciar o aplicativo
 init_db()
 
-# Rota inicial para exibir o formulário de cadastro
+# Rota inicial: redireciona para a página de login
 @app.route('/')
 def home():
+    return redirect(url_for('login'))
+
+# Nova rota para exibir a página de cadastro
+@app.route('/cadastro')
+def cadastro():
     return render_template('cadastro_funcionario.html')
 
 # Rota para cadastrar os funcionários
@@ -96,15 +101,16 @@ def cadastrar():
                     horas_trabalhadas, vale_transporte, irrf, inss, vale_alimentacao, horas_extras
                 )
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (nome, data_nascimento, salario, cpf, cargo, numero_conta, horas_trabalhadas, vale_transporte, irrf, inss, vale_alimentacao, horas_extras))
+            ''', (nome, data_nascimento, salario, cpf, cargo, numero_conta,
+                  horas_trabalhadas, vale_transporte, irrf, inss, vale_alimentacao, horas_extras))
             conn.commit()
+            flash('Cadastro realizado com sucesso!', 'success')
         except sqlite3.IntegrityError:
-            return "Erro: CPF já cadastrado."
+            flash('Erro: CPF já cadastrado.', 'error')
         finally:
             conn.close()
 
-        return redirect(url_for('home'))
-
+        return redirect(url_for('cadastro'))
 # Rota para exibir os funcionários cadastrados
 @app.route('/busca')
 def busca_funcionario():
@@ -227,7 +233,8 @@ def login():
 
         # Verificar se o email e senha são corretos
         if email == usuario_correto and senha == senha_correta:
-            return redirect(url_for('home'))  # Redireciona para a página de cadastro
+            # Redireciona para a página de cadastro após login
+            return redirect(url_for('cadastro'))
         else:
             flash('Email ou senha incorretos. Tente novamente.', 'error')
             print('senha incorreta!')  # terminal
@@ -382,5 +389,6 @@ def gerar_holerite(id):
     buffer.seek(0)
 
     return send_file(buffer, as_attachment=True, download_name=f"holerite_{nome}.pdf", mimetype='application/pdf')
+
 if __name__ == '__main__':
     app.run(debug=True)
