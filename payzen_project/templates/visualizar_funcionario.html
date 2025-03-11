@@ -6,9 +6,11 @@
     <title>Visualizar Funcionário</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style_visualizar.css') }}">
 </head>
+<a href="{{ url_for('busca_funcionario') }}" class="voltar-btn">
+    <span>&#8592;</span> Voltar
+  </a>   
 <body>
     <div class="container">
-        <a href="{{ url_for('busca_funcionario') }}" class="voltar">← Voltar</a>
         <h1>Detalhes do Funcionário</h1>
         <form action="/funcionario/{{ funcionario['id'] }}" method="post" class="formulario">
             <div class="input-group">
@@ -36,7 +38,7 @@
                 <input type="text" name="numero_conta" id="numero_conta" value="{{ funcionario['numero_conta'] }}" required>
             </div>
             <div class="form-buttons">
-                <button type="submit" class="btn">Salvar Alterações</button>
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
                 <button type="button" class="btn" onclick="window.location.href='{{ url_for('mais_informacoes', id=funcionario.id) }}'">
                     Mais Informações
                 </button>
@@ -50,8 +52,10 @@
             <button type="submit" class="btn-excluir">Excluir Funcionário</button>
         </form>
     </div>
-    <footer>
-        <p>© Todos os Direitos Reservados</p>
-    </footer>
+  <!-- Rodapé -->
+  <footer>
+    <p>ㅤ&copy; Todos os Direitos Reservados</p>
+</footer>
+
 </body>
 </html>

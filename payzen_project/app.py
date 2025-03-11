@@ -320,7 +320,7 @@ def gerar_holerite(id):
 
     # Cabeçalho
     elements.append(Paragraph("<b>Recibo de Pagamento de Salário</b>", styles['Title']))
-    elements.append(Paragraph("Referente ao Mês/Ano: Janeiro-2024", styles['Normal']))
+    elements.append(Paragraph("Referente ao Mês/Ano: Março - 2025", styles['Normal']))
     elements.append(Spacer(1, 12))
 
     # Dados do Funcionário

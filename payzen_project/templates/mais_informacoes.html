@@ -73,21 +73,28 @@
                     </div>
                 </div>
 
-                <div class="actions">
-                    <button type="button" class="edit-btn" onclick="editFields()">
-                        <i class="fas fa-edit"></i> Editar
-                    </button>
-                    <button type="submit" class="save-btn">
-                        <i class="fas fa-save"></i> Salvar
-                    </button>
-                </div>
+                <!-- Logo no meio -->
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="logo">
+</div>
+
+<!-- Botões -->
+<div class="actions">
+    <button type="button" class="edit-btn" onclick="editFields()">
+        <i class="fas fa-edit"></i> Editar
+    </button>
+
+    <button type="submit" class="save-btn">
+        <i class="fas fa-save"></i> Salvar
+    </button>
+</div>
+
             </div>
         </form>
-
-        <div class="footer">
-            <img src="img/a-clean-modern-and-professional-logo-with-the-text-9eVuCq3pTGmzTziuuqdCaw-64NQXdd1Shq8dyQ7zRA6MQ-removebg-preview.png" alt="PAYZEN" class="logo-image">
-            <p>&copy; Todos os Direitos Reservados</p>
-        </div>
+       <!-- Rodapé -->
+  <footer>
+    <p>ㅤ&copy; Todos os Direitos Reservados</p>
+</footer>
     </div>
 </body>
 </html>

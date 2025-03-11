@@ -2,26 +2,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:  #222c41;
+    background-color:  #5688ce;
     color: white;
   }
   
   .voltar-btn {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: grey;
-    color: yellow;
-    padding: 10px 15px;
-    border-radius: 5px;
+    top: 20px;
+    left: 20px;
+    color:  #FFD700;
+    cursor: pointer;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 24px;
+    align-items: center;
+    display: flex;
+    gap: 5px;
 }
 
-.voltar-btn:hover {
-    background-color: darkgray;
-}
+
   .container {
     display: flex;
     flex-direction: column;
@@ -59,13 +57,6 @@ body {
     width: 400px; 
   }
   
-  .history {
-    width: 400px; 
-    background-color: #222c41;
-    border-radius: 10px;
-    padding: 20px;
-    color: black;
-  }
   
    .section {
     margin-bottom: 15px;
@@ -86,10 +77,12 @@ body {
   
   .total {
     margin-top: 20px;
+    color: #000000;
   }
   
   .total span {
     font-weight: bold;
+    color: #ffffff;
   }
   
   .yellow-box {
@@ -98,6 +91,12 @@ body {
     background-color:  #f7de53;
     border-radius: 5px;
     margin-top: 5px;
+
+    /* Centraliza o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
   }
   
   .history {
@@ -105,7 +104,7 @@ body {
   }
   
   .history .name button {
-    background-color: white;
+    background-color: rgb(192, 192, 192);
     color: black;
     padding: 5px 10px;
     border: none;
@@ -133,7 +132,7 @@ body {
   }
   
   .export button {
-    background-color: rgb(4, 34, 167);
+    background-color: #2e5386;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -143,7 +142,7 @@ body {
   }
   
   .export button:hover {
-    background-color: rgb(220, 221, 233);
+    background-color: rgb(136, 136, 139);
   }
 
   .name .name-text {
@@ -205,7 +204,28 @@ body {
   
   .receipt hr {
     margin: 10px 0;
-    border: 0.5px solid #ccc;
+    border: 0.5px solid #9b9b9b;
   }
+  .logo-container {
+    text-align: right;
+    margin-top: 20px; 
+    padding-right: 20px; 
+}
+
+.logo {
+    width: 200px; 
+    height: auto;
+}
+
   
-  
+  .history {
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
