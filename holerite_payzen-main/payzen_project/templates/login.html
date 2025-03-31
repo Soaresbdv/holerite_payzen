@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PayZen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=mail" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call" />
+</head>
+<body>
+    <div class="login-container">
+        <img src="static/img/logo.png" alt="PayZen Logo" style="width: 150%; max-width: 200px;">
+        <!-- Formulário enviado para a rota /login -->
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="email">Usuário:</label>
+            <input type="email" id="email" name="email" placeholder="E-mail do RH" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" maxlength="8" placeholder="até 8 dígitos" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+    <script>
+        // Função para enviar o login via AJAX sem recarregar a página
+        document.getElementById('login').onsubmit = async function(event) {
+            event.preventDefault();  // Impede o envio normal do formulário
+
+            // Captura os dados do formulário
+            let email = document.getElementById('email').value;
+            let senha = document.getElementById('senha').value;
+
+            // Envia os dados para o servidor via AJAX
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `email=${email}&senha=${senha}`
+            });
+
+            const result = await response.text();  // A resposta do servidor
+
+            // Verifica se o login foi bem-sucedido (baseado na resposta do Flask)
+            if (result.includes('cadastro')) {
+                // Se o login for bem-sucedido, redireciona para a página de cadastro
+                window.location.href = '/cadastro';  // Redireciona para a página de cadastro
+            } else {
+                // Se a senha ou email estiver errado, mostra a mensagem de erro
+                document.getElementById('error-message').innerText = 'Email ou senha incorretos.';
+            }
+        }
+    </script>
+    
+    
+
+    <footer>
+        <div class="footer-content">
+            <div class="icon-text">
+                <span class="material-symbols-outlined">E-MAIL</span>
+                <a href="mailto:payzen@gmail.com">payzen@gmail.com</a>
+            </div>
+            <div class="icon-text">
+                <span class="material-symbols-outlined">call</span>
+                <a href="tel:+5541998998888">(41) 99899-8888</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Powered by Python, HTML ㅤ</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,188 @@
+body {
+    background-color: #222c41; /* Fundo azul escuro */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+.voltar-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color:  #FFD700;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 24px;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.container {
+    max-width: 1000px; /* Aumentei um pouco a largura */
+    margin: 80px auto; /* Mantive espaçamento do topo */
+    background-color: #b1bac7;
+    padding: 30px; /* Aumentei o padding para mais espaço interno */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+h1 {
+    color: #000;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mantém dois campos lado a lado */
+    gap: 30px; /* Aumentei o espaço entre os inputs */
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+}
+.input-group label {
+    margin-bottom: 8px; /* Aumentei um pouco o espaço abaixo do label */
+}
+
+/* Ajuste para caixas de entrada somente leitura */
+input[readonly] {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+    border-radius: 20px; /* Mantém arredondado */
+}
+
+
+.form-buttons {
+    grid-column: span 2;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn {
+    background-color: #f3d630;
+    color: #fff;
+}
+
+.btn-salvar {
+    background-color: #1ea361;
+    color: #fff;
+}
+
+.btn-excluir {
+    background-color: #dc3545;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.btn-excluir:hover {
+    background-color: #a71d2a;
+}
+.btn-salvar:hover {
+    background-color:#258a57;
+}
+
+.btn:hover{
+    background-color: #cab332 ;
+}
+
+footer {
+    position: relative; /* Em vez de absolute, para não fixar */
+    margin-top: 50px; /* Empurra o rodapé mais para baixo */
+    width: 100%;
+    background-color: #396eb8;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.folha_pagamento_button {
+    background-color: rgb(85, 85, 253); 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+}
+
+.folha_pagamento_button:hover {
+    background-color:rgb(56, 56, 199); 
+}
+
+.folha_pagamento_button a {
+    text-decoration: none; 
+    color: white; 
+}
+/* === RODAPÉ === */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:#396eb8;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.footer-content .icon-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-content .icon-text a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+.footer-content .icon-text a:hover {
+    text-decoration: underline;
+}
+.logo-container {
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.logo {
+    width: 120px; 
+    height: auto;
+}
+
